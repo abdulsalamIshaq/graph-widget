@@ -1,1 +1,0 @@
-{"version":3,"file":"index.css","mappings":";;;AAAA;EACI;AACJ;;AAEA;EACE;EACA;EACA;EACA;AACF,C","sources":["webpack://graph/./src/style/main.scss"],"sourcesContent":[".graph {\n    overflow: hidden;\n}\n\n.graph-header {\n  display: flex;\n  justify-content: space-between;\n  height: 40px;\n  align-items: center;\n}\n"],"names":[],"sourceRoot":""}

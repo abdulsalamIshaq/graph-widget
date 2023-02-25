@@ -108,51 +108,95 @@ function my_graph_create_db()
             "amt" => 2100
         ]
     ];
-
     $fifteenDays = [
         [
             "name" => "Page A",
-            "uv" => 4000,
-            "pv" => 2500,
-            "amt" => 2400
+            "uv" => 590,
+            "pv" => 800,
+            "amt" => 1400,
         ],
         [
             "name" => "Page B",
-            "uv" => 3000,
-            "pv" => 1398,
-            "amt" => 2210
+            "uv" => 868,
+            "pv" => 967,
+            "amt" => 1506,
         ],
         [
             "name" => "Page C",
-            "uv" => 1000,
-            "pv" => 9200,
-            "amt" => 2290
+            "uv" => 1397,
+            "pv" => 1098,
+            "amt" => 989,
         ],
         [
             "name" => "Page D",
-            "uv" => 7780,
-            "pv" => 3108,
-            "amt" => 2000
+            "uv" => 1480,
+            "pv" => 1200,
+            "amt" => 1228,
         ],
         [
             "name" => "Page E",
-            "uv" => 9890,
-            "pv" => 4400,
-            "amt" => 2181
+            "uv" => 1520,
+            "pv" => 1108,
+            "amt" => 1100,
         ],
         [
             "name" => "Page F",
-            "uv" => 2390,
-            "pv" => 2500,
-            "amt" => 5500
+            "uv" => 1400,
+            "pv" => 680,
+            "amt" => 1700,
         ],
         [
             "name" => "Page G",
-            "uv" => 3490,
-            "pv" => 1400,
-            "amt" => 2100
-        ]
+            "uv" => 590,
+            "pv" => 800,
+            "amt" => 1400,
+        ],
     ];
+
+    $lastMonth = [
+  [
+    "name" => "Page A",
+    "uv" => 4000,
+    "pv" => 2400,
+    "amt" => 2400,
+  ],
+  [
+    "name" => "Page B",
+    "uv" => 3000,
+    "pv" => 1398,
+    "amt" => 2210,
+  ],
+  [
+    "name" => "Page C",
+    "uv" => 2000,
+    "pv" => 9800,
+    "amt" => 2290,
+  ],
+  [
+    "name" => "Page D",
+    "uv" => 2780,
+    "pv" => 3908,
+    "amt" => 2000,
+  ],
+  [
+    "name" => "Page E",
+    "uv" => 1890,
+    "pv" => 4800,
+    "amt" => 2181,
+  ],
+  [
+    "name" => "Page F",
+    "uv" => 2390,
+    "pv" => 3800,
+    "amt" => 2500,
+  ],
+  [
+    "name" => "Page G",
+    "uv" => 3490,
+    "pv" => 4300,
+    "amt" => 2100,
+  ],
+];
 
     $wpdb->insert($table_name, [
         'duration' => 'Last 7 days',
@@ -162,6 +206,11 @@ function my_graph_create_db()
     $wpdb->insert($table_name, [
         'duration' => 'Last 15 days',
         'data' => json_encode($fifteenDays),
+    ]);
+
+    $wpdb->insert($table_name, [
+        'duration' => 'Last Month',
+        'data' => json_encode($lastMonth),
     ]);
 }
 
@@ -191,5 +240,4 @@ function get_graph(WP_REST_Request $request)
     $posts = $wpdb->get_results($sql);
 
     return $posts;
-
 }
